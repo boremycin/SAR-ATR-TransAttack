@@ -1,0 +1,17 @@
+﻿dataset:
+  name: MSTAR
+  dataset_dir: './datasets/MSTAR/MSTAR/'
+  image_size: 128
+  n_channels: 3
+  n_classes: 10
+  labels: ['2S1','BMP2','BRDM_2','BTR_60','BTR70','D7','T62','T72','ZIL131','ZSU_23_4']
+augmentation:
+  use_random_crop: True
+  use_random_horizontal_flip: False
+  use_cutout: False
+  use_random_erasing: False
+  use_dual_cutout: False
+  use_mixup: True
+  use_ricap: False
+  use_cutmix: True
+  use_label_smoothing: False

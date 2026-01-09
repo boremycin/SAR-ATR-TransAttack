@@ -1,0 +1,58 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+env/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*~
+.DS_Store
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Local configuration files
+*.local
+*.cfg
+
+# Trained model weights (optional - remove if you want to include weights)
+*.pth
+*.pt
+*.h5
+*.ckpt
+
+# Dataset files (optional - adjust according to your needs)
+datasets/**
+!datasets/.gitkeep
+
+attack_result/**
+!attack_result/.gitkeep
+
+attack_evaluate/**
+!attack_evaluate/.gitkeep
+
+experiments/**
+!experiments/.gitkeep
+
+resultFigs/**
+!resultFigs/.gitkeep
+
+weights/**
+!weights/.gitkeep
+
+transferAttack.txt
+SARAttack.ipynb
+scripts/drawing.ipynb
+

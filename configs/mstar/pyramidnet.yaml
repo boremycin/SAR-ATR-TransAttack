@@ -1,0 +1,93 @@
+device: cuda:0
+dataset:
+  name: MSTAR
+  dataset_dir: './datasets/MSTAR/'
+  image_size: 128
+  n_channels: 3
+  n_classes: 10
+model:
+  type: mstar
+  name: pyramidnet
+  init_mode: kaiming_fan_out
+  pyramidnet:
+    depth: 272
+    initial_channels: 16
+    block_type: bottleneck
+    alpha: 200
+
+train:
+  distributed: False
+  dist:
+    init_method: env://
+    backend: nccl
+    node_rank: 0
+    world_size: 4
+    local_rank: 0
+
+  seed: 3407
+  precision: O0
+  batch_size: 8
+  subdivision: 1
+  optimizer: sgd
+  base_lr: 0.1
+  momentum: 0.9
+  nesterov: True
+  weight_decay: 1e-4
+  output_dir: ./experiments/mstar/pyramidnet/exp2-1
+  log_period: 100
+  checkpoint_period: 100
+  val_ratio: 0.0
+  use_test_as_val: True
+  use_tensorboard: True
+
+  dataloader:
+    num_workers: 32
+    drop_last: True
+    pin_memory: False
+
+validation:
+  batch_size: 8
+  dataloader:
+    num_workers: 8
+    drop_last: False
+    pin_memory: False
+
+test:
+  output_dir: ./experiments/mstar/pyramidnet/test2-1
+  checkpoint: ./experiments/mstar/pyramidnet/exp2-1/
+  batch_size: 16
+
+scheduler:
+  epochs: 4500
+  type: cosine
+  T0: 10
+  T_mul: 1.
+  milestones: [200, 400,600,800]
+  lr_decay: 0.1
+  warmup:
+    type: linear
+    epochs: 15
+    start_factor: 1e-3 
+
+augmentation:
+  use_random_crop: False
+  use_random_horizontal_flip: False
+  use_cutout: False
+  use_random_erasing: False
+  use_dual_cutout: False
+  use_mixup: False
+  use_ricap: False
+  use_cutmix: False
+  use_label_smoothing: False
+  random_crop:
+    padding: 4
+    fill: 0
+    padding_mode: constant
+  random_horizontal_flip:
+    prob: 0.5
+tensorboard:
+  train_images: False
+  val_images: False
+  model_params: False
+
+
