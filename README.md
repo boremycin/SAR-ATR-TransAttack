@@ -149,7 +149,7 @@ If you find this work useful in your research, please consider citing:
 ```bibtex
 @article{TransAttackSAR,
   title={Spatial Transformation–based Adversarial Attacks for SAR Automatic Target Recognition},
-  author={Timing Zhang and others},
+  author={Yiming Zhang and others},
   journal={Arxiv},
   year={2026}
 }
