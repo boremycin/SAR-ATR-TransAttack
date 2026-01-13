@@ -3,7 +3,7 @@
 
 This repository provides the official implementation for the paper:
 
-**"Spatial Transformation–based Adversarial Attacks for SAR Automatic Target Recognition"**
+**"SRAW-Attack: Space-Reweighted Adversarial Warping Attack for SAR Target Recognition"**
 
 The codebase is designed to support reproducible research on *adversarial robustness and vulnerability analysis of deep learning–based SAR Automatic Target Recognition (SAR-ATR) systems*, with a particular focus on **spatial/warping-based adversarial attacks** that depart from conventional additive perturbation paradigms.
 
@@ -13,10 +13,10 @@ The codebase is designed to support reproducible research on *adversarial robust
 
 Deep neural networks (DNNs) have become the dominant approach for SAR Automatic Target Recognition (ATR). However, due to the intrinsic sparsity, strong structural priors, and speckle-dominated background of SAR imagery, their robustness characteristics differ fundamentally from those observed in optical imagery.
 
-This repository investigates **transformation-based adversarial attacks** for SAR-ATR, including spatial warping and geometry-aware perturbations, and provides:
+This repository investigates **warping-based adversarial attacks** for SAR-ATR, including spatial warping and geometry-aware perturbations, and provides:
 
 - Implementations of several *baseline adversarial attacks* adapted to SAR imagery
-- A novel **transformation-based adversarial attack framework** (TransAttack)
+- A novel **warping-based adversarial attack framework** (TransAttack)
 - Evaluation protocols tailored for SAR-ATR models
 - Experimental code supporting the results reported in the paper
 
@@ -112,7 +112,7 @@ python train.py --config configs/train.yaml
 ### 6.3 Adversarial Evaluation
 
 ```bash
-python attack_eval.py \
+python attack_evaluation.py \
     --attack transattack \
     --model resnet \
     --config configs/attack.yaml
@@ -148,8 +148,8 @@ If you encounter discrepancies, please verify dataset preprocessing and normaliz
 If you find this work useful in your research, please consider citing:
 
 ```bibtex
-@article{TransAttackSAR,
-  title={Spatial Transformation–based Adversarial Attacks for SAR Automatic Target Recognition},
+@article{SRAW,
+  title={SRAW-Attack: Space-Reweighted Adversarial Warping Attack for SAR Target Recognition},
   author={Yiming Zhang and others},
   journal={Arxiv},
   year={2026}
